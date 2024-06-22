@@ -1,0 +1,58 @@
+html {
+    font-family: "Orbitron", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-color: lightcyan;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calc {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    background-color: slategray;
+    border: 1px;
+    border-style: solid;
+    border-color: navy;
+}
+
+.row {
+    display: flex;
+}
+
+button {
+    flex: 1;
+    padding: 20px 0px;
+    font-size: 48px;
+    box-sizing: border-box;
+    background-color: aliceblue;
+    font-family: inherit;
+    border: 1px;
+    border-style: solid;
+    border-color: navy;
+}
+
+.display {
+    font-size: 48px;
+    text-align: right;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    border: 1px;
+    border-style: solid;
+    border-color: navy;
+}
+
+.operator {
+    background-color: rgb(130, 197, 255);
+}
+
+.wide {
+    flex: 3;
+}
+
+.thin {
+    flex: 1;
+}
