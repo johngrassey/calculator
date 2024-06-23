@@ -2,6 +2,23 @@ let num1;
 let num2;
 let operator;
 
+
+// NUMBERS TO DISPLAY
+
+let displayValue = "";
+const display = document.querySelector(".display");
+display.textContent = displayValue;
+const numbers = document.querySelectorAll(".number");
+
+numbers.forEach((number) => {
+    number.addEventListener("click", () =>{
+        displayValue += number.textContent;
+        display.textContent = displayValue;
+    })
+})
+
+// ARITHMETIC
+
 function add(a,b) {
     console.log( a + b );
 };

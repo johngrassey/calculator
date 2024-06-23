@@ -5,6 +5,7 @@ html {
 body {
     background-color: lightcyan;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -33,11 +34,14 @@ button {
     border: 1px;
     border-style: solid;
     border-color: navy;
+    margin: 2px;
 }
 
 .display {
     font-size: 48px;
+    height: 100px;
     text-align: right;
+    font-weight: 700;
     padding: 20px 10px;
     box-sizing: border-box;
     border: 1px;
