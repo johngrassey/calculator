@@ -1,6 +1,7 @@
 let num1 = "";
 let num2 = "";
 let operator = "";
+let runningTotal = "";
 
 // NUMBERS TO DISPLAY
 
@@ -11,6 +12,7 @@ const numbers = document.querySelectorAll(".number");
 
 numbers.forEach((number) => {
     number.addEventListener("click", () => {
+        runningTotal = "";
         displayValue += number.textContent;
         setDisplay(displayValue);
     });
@@ -21,7 +23,11 @@ numbers.forEach((number) => {
 const operators = document.querySelectorAll(".operator");
 operators.forEach((symbol) => {
     symbol.addEventListener("click", () => {
-        num1 = +displayValue;
+        if (runningTotal !== "") {
+            num1 = +runningTotal;
+        } else {
+            num1 = +displayValue;
+        };
         operator = symbol.textContent;
         displayValue = "";
     });
@@ -39,6 +45,7 @@ equals.addEventListener("click", () => {
         num2 = +displayValue;
         operate(operator,num1,num2);
         setDisplay(displayValue);
+        runningTotal = displayValue;
         displayValue = "";
     };
 });
