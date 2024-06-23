@@ -32,12 +32,20 @@ operators.forEach((symbol) => {
 // EQUALS
 
 const equals = document.querySelector(".equals");
-    equals.addEventListener("click", () => {
-        num2 = +displayValue;
-        operate(operator,num1,num2);
-        display.textContent = displayValue;
-        displayValue = "";
-    });
+equals.addEventListener("click", () => {
+    num2 = +displayValue;
+    operate(operator,num1,num2);
+    display.textContent = displayValue;
+    displayValue = "";
+});
+
+// CLEAR
+
+// const clear = document.querySelector(".clear");
+// equals.addEventListener("click", () => {
+//     displayValue = "";
+//     display.textContent = displayValue;
+// });
 
 // ARITHMETIC
 
@@ -65,6 +73,11 @@ function operate(operator, a, b) {
     } else if (operator === "x") {
         multiply(a,b); 
     } else {
-        divide(a,b);
+        if (num2 === 0) {
+            displayValue = "Can't Do That!";
+        } else {
+            divide(a,b);
+        };
+
     }
 };
