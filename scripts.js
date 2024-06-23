@@ -6,7 +6,7 @@ let runningTotal = "";
 // NUMBERS TO DISPLAY
 
 let displayValue = "";
-const display = document.querySelector(".display");
+const display = document.querySelector(".current");
 display.textContent = displayValue;
 const numbers = document.querySelectorAll(".number");
 

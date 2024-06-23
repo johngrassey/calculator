@@ -8,6 +8,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100vh;
 }
 
 .calc {
@@ -38,7 +39,7 @@ button {
 
 .display {
     font-size: 48px;
-    height: 100px;
+    height: 130px;
     text-align: right;
     font-weight: 700;
     padding: 20px 10px;
