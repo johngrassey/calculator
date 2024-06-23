@@ -31,22 +31,32 @@ operators.forEach((symbol) => {
 
 const equals = document.querySelector(".equals");
 equals.addEventListener("click", () => {
-    num2 = +displayValue;
-    operate(operator,num1,num2);
-    setDisplay(displayValue);
-    displayValue = "";
+    if (num1 === "" || operator === "" || displayValue === "") {
+        displayValue = "ERR";
+        setDisplay(displayValue);
+        clearCalc();
+    } else {
+        num2 = +displayValue;
+        operate(operator,num1,num2);
+        setDisplay(displayValue);
+        displayValue = "";
+    };
 });
 
 // CLEAR
 
 const clear = document.querySelector(".clear");
 clear.addEventListener("click", () => {
-    displayValue = "";
+    clearCalc();
     setDisplay(displayValue);
+});
+
+function clearCalc() {
+    displayValue = "";
     num1 = "";
     num2 = "";
     operator = "";
-});
+}
 
 // ARITHMETIC
 
@@ -84,5 +94,9 @@ function operate(operator, a, b) {
 
 // UPDATE DISPLAY
 function setDisplay(number) {
-    display.textContent = Math.round(number * 1000) / 1000;
+    if (typeof number === "string") {
+        display.textContent = number;
+    } else {
+        display.textContent = Math.round(number * 1000) / 1000;
+    };
 };
