@@ -1,7 +1,6 @@
-let num1;
-let num2;
-let operator;
-
+let num1 = "";
+let num2 = "";
+let operator = "";
 
 // NUMBERS TO DISPLAY
 
@@ -13,7 +12,7 @@ const numbers = document.querySelectorAll(".number");
 numbers.forEach((number) => {
     number.addEventListener("click", () => {
         displayValue += number.textContent;
-        display.textContent = displayValue;
+        setDisplay(displayValue);
     });
 });
 
@@ -26,8 +25,7 @@ operators.forEach((symbol) => {
         operator = symbol.textContent;
         displayValue = "";
     });
-})
-
+});
 
 // EQUALS
 
@@ -35,7 +33,7 @@ const equals = document.querySelector(".equals");
 equals.addEventListener("click", () => {
     num2 = +displayValue;
     operate(operator,num1,num2);
-    display.textContent = displayValue;
+    setDisplay(displayValue);
     displayValue = "";
 });
 
@@ -44,7 +42,10 @@ equals.addEventListener("click", () => {
 const clear = document.querySelector(".clear");
 clear.addEventListener("click", () => {
     displayValue = "";
-    display.textContent = displayValue;
+    setDisplay(displayValue);
+    num1 = "";
+    num2 = "";
+    operator = "";
 });
 
 // ARITHMETIC
@@ -78,6 +79,10 @@ function operate(operator, a, b) {
         } else {
             divide(a,b);
         };
-
     }
+};
+
+// UPDATE DISPLAY
+function setDisplay(number) {
+    display.textContent = Math.round(number * 1000) / 1000;
 };
