@@ -41,11 +41,11 @@ equals.addEventListener("click", () => {
 
 // CLEAR
 
-// const clear = document.querySelector(".clear");
-// equals.addEventListener("click", () => {
-//     displayValue = "";
-//     display.textContent = displayValue;
-// });
+const clear = document.querySelector(".clear");
+clear.addEventListener("click", () => {
+    displayValue = "";
+    display.textContent = displayValue;
+});
 
 // ARITHMETIC
 
