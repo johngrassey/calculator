@@ -100,6 +100,7 @@ function operate(operator, a, b) {
 };
 
 // UPDATE DISPLAY
+
 function setDisplay(number) {
     if (typeof number === "string") {
         display.textContent = number;
