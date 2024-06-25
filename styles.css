@@ -61,7 +61,7 @@ button {
     font-weight: 300;
 }
 
-.operator, .equals{
+.dark, .equals{
     background-color: rgb(130, 197, 255);
 }
 

@@ -13,11 +13,17 @@ const numbers = document.querySelectorAll(".number");
 
 numbers.forEach((number) => {
     number.addEventListener("click", () => {
-        runningTotal = "";
-        displayValue += number.textContent;
-        setDisplay(displayValue);
+        addDisplayDigit(number);
     });
 });
+
+// DECIMAL
+const decimal = document.querySelector(".decimal");
+    decimal.addEventListener("click", () => {
+        if (displayValue.includes(".") === false) {
+            addDisplayDigit(decimal);
+        }
+    });
 
 // OPERATORS
 
@@ -35,9 +41,8 @@ operators.forEach((symbol) => {
             historyValue = displayValue + " " + operator;
             setHistory(historyValue);
         };
-
-
         displayValue = "";
+        setDisplay(displayValue);
     });
 });
 
@@ -128,4 +133,23 @@ const history = document.querySelector(".history");
 
 function setHistory(str) {
     history.textContent = historyValue;
+}
+
+// BACKSPACE
+
+const back = document.querySelector(".back");
+
+back.addEventListener("click", () => {
+    backspace();
+});
+
+function backspace() {
+    displayValue = displayValue.slice(0, -1);
+    setDisplay(displayValue);
+}
+
+function addDisplayDigit(digit) {
+    runningTotal = "";
+    displayValue += digit.textContent;
+    setDisplay(displayValue);
 }
