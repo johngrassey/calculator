@@ -2,6 +2,7 @@ let num1 = "";
 let num2 = "";
 let operator = "";
 let runningTotal = "";
+let historyValue = "";
 
 // NUMBERS TO DISPLAY
 
@@ -25,10 +26,17 @@ operators.forEach((symbol) => {
     symbol.addEventListener("click", () => {
         if (runningTotal !== "") {
             num1 = +runningTotal;
+            operator = symbol.textContent;
+            historyValue = runningTotal + " " + operator;
+            setHistory(historyValue);
         } else {
             num1 = +displayValue;
+            operator = symbol.textContent;
+            historyValue = displayValue + " " + operator;
+            setHistory(historyValue);
         };
-        operator = symbol.textContent;
+
+
         displayValue = "";
     });
 });
@@ -43,10 +51,13 @@ equals.addEventListener("click", () => {
         clearCalc();
     } else {
         num2 = +displayValue;
+        historyValue += " " + displayValue + " =";
         operate(operator,num1,num2);
         setDisplay(displayValue);
+        setHistory(historyValue);
         runningTotal = displayValue;
         displayValue = "";
+        historyValue = "";
     };
 });
 
@@ -56,6 +67,7 @@ const clear = document.querySelector(".clear");
 clear.addEventListener("click", () => {
     clearCalc();
     setDisplay(displayValue);
+    setHistory(historyValue);
 });
 
 function clearCalc() {
@@ -63,6 +75,7 @@ function clearCalc() {
     num1 = "";
     num2 = "";
     operator = "";
+    historyValue = "";
 }
 
 // ARITHMETIC
@@ -99,7 +112,7 @@ function operate(operator, a, b) {
     }
 };
 
-// UPDATE DISPLAY
+// UPDATE CURRENT DISPLAY
 
 function setDisplay(number) {
     if (typeof number === "string") {
@@ -108,3 +121,11 @@ function setDisplay(number) {
         display.textContent = Math.round(number * 1000) / 1000;
     };
 };
+
+// UPDATE HISTORY DISPLAY
+
+const history = document.querySelector(".history");
+
+function setHistory(str) {
+    history.textContent = historyValue;
+}
