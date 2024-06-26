@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-color: lightcyan;
+    background-color: #C3E4ED;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,12 +13,12 @@ body {
 
 .calc {
     display: flex;
+    padding: 60px 5px;
     flex-direction: column;
-    width: 500px;
-    background-color: slategray;
-    border: 1px;
-    border-style: solid;
-    border-color: navy;
+    width: 450px;
+    background-color: black;
+    border: none;
+    border-radius: 25px;
 }
 
 .row {
@@ -28,22 +28,26 @@ body {
 button {
     flex: 1;
     padding: 20px 0px;
+    margin: 5px;
     font-size: 48px;
     box-sizing: border-box;
-    background-color: aliceblue;
+    background-color: #272727;
+    color: white;
     font-family: inherit;
-    border: 1px;
-    border-style: solid;
-    border-color: navy;
+    border-style: none;
+    border-radius: 10px;
+    /* border: 1px;
+
+    border-color: navy; */
 }
 
 .display {
     padding: 20px 10px;
     height: 125px;
     box-sizing: border-box;
-    border: 1px;
+    /* border: 1px;
     border-style: solid;
-    border-color: navy;
+    border-color: navy; */
     display: flex;
     flex-direction: column;
 }
@@ -51,6 +55,7 @@ button {
     font-size: 48px;
     text-align: right;
     font-weight: 700;
+    color: white;
     flex: 1;
 }
 
@@ -59,10 +64,11 @@ button {
     font-size: 24px;
     text-align: right;
     font-weight: 300;
+    color: #818181
 }
 
 .dark, .equals{
-    background-color: rgb(130, 197, 255);
+    background-color: #3E819E;
 }
 
 .wide {
