@@ -13,6 +13,9 @@ const numbers = document.querySelectorAll(".number");
 
 numbers.forEach((number) => {
     number.addEventListener("click", () => {
+        if (historyValue === "") {
+            setHistory(historyValue);
+        }
         addDisplayDigit(number);
     });
 });
@@ -78,6 +81,7 @@ equals.addEventListener("click", () => {
         clearCalc();
     } else {
         doEquation();
+        clearCalc();
     };
 });
 
