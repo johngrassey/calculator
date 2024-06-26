@@ -35,6 +35,17 @@ operators.forEach((symbol) => {
             operator = symbol.textContent;
             historyValue = runningTotal + " " + operator;
             setHistory(historyValue);
+        } else if (displayValue === "") {
+            displayValue = "";
+            setDisplay(displayValue);
+        } else if (num1 !== "") {
+            num2 = +displayValue;
+            operator = symbol.textContent;
+            operate(operator,num1,num2);
+            historyValue += " " + num2 + " " + operator;
+            setDisplay(displayValue);
+            setHistory(historyValue);
+            num1 = displayValue;
         } else {
             num1 = +displayValue;
             operator = symbol.textContent;
@@ -48,6 +59,17 @@ operators.forEach((symbol) => {
 
 // EQUALS
 
+function doEquation() {
+    num2 = +displayValue;
+    historyValue += " " + displayValue + " =";
+    operate(operator,num1,num2);
+    setDisplay(displayValue);
+    setHistory(historyValue);
+    runningTotal = displayValue;
+    displayValue = "";
+    historyValue = "";
+}
+
 const equals = document.querySelector(".equals");
 equals.addEventListener("click", () => {
     if (num1 === "" || operator === "" || displayValue === "") {
@@ -55,14 +77,7 @@ equals.addEventListener("click", () => {
         setDisplay(displayValue);
         clearCalc();
     } else {
-        num2 = +displayValue;
-        historyValue += " " + displayValue + " =";
-        operate(operator,num1,num2);
-        setDisplay(displayValue);
-        setHistory(historyValue);
-        runningTotal = displayValue;
-        displayValue = "";
-        historyValue = "";
+        doEquation();
     };
 });
 
